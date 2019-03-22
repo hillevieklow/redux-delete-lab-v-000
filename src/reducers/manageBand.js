@@ -1,19 +1,22 @@
+import uuid from 'uuid';
+
 export default function manageBand(state = {
   bands: []
 }, action) {
   switch (action.type) {
     case 'ADD_BAND':
-
-    const band = {
-        id: Math.random()*10000000000000000,
-        name: action.payload
+      const band = {
+        ...action.band,
+        id: uuid()
       }
 
-      return { ...state, bands: [...state.bands, band] }
+      return { bands: [...state.bands, band] }
 
-      case 'DELETE_BAND':
-
-          return {bands: state.bands.filter(band => band.id !== action.payload)}
+    case 'DELETE_BAND':
+    console.log(action)
+      const newState = { bands: state.bands.filter(band => band.id !== action.id) }
+debugger;
+      return newState;
 
     default:
       return state;
