@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 class BandsContainer extends Component {
 
+
   mapBands = () => {
     return this.props.bands.map((band, id) => <Band delete={this.props.delete} key={band.id} band={band} />)}
 
