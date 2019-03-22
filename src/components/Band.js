@@ -1,17 +1,16 @@
+
 import React, { Component } from 'react';
 
 class Band extends Component {
 
-  handleOnClick = () => {
-    this.props.deleteBand(this.props.id)
-  }
-
   render() {
+    const name = this.props.band.name
+    const band = this.props.band
+
     return(
-      <div>
-        <li>{this.props.name}</li>
-        <button onClick={this.handleOnClick}>DELETE</button>
-      </div>
+      <li>
+        {name} <button onClick={e => this.props.removeBand(band.id)}>&times;</button>
+      </li>
     );
   }
 };
